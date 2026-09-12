@@ -1,0 +1,2726 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>База Знаний | Фитнес-Ассистенты 35' Health Club Ташкент</title>
+  <style>
+    /* ==========================================================================
+       СТИЛИ: ЯРКИЙ, СВЕТЛЫЙ, ЧИСТЫЙ СТИЛЬ (БЕЗ НЕОНА)
+       100% АВТОНОМНОСТЬ (БЕЗ ВНЕШНИХ CDN И ШРИФТОВ)
+       ========================================================================== */
+    :root {
+      --primary: #FF5722;           /* Энергичный кораллово-оранжевый */
+      --primary-hover: #E64A19;
+      --primary-light: #FFF0EB;
+      --primary-border: #FFCCBC;
+      
+      --secondary: #0284C7;         /* Свежий спортивный лазурный */
+      --secondary-light: #E0F2FE;
+      --secondary-border: #BAE6FD;
+      
+      --success: #10B981;           /* Изумрудный для бонусов и успехов */
+      --success-light: #ECFDF5;
+      --success-border: #A7F3D0;
+      
+      --warning: #F59E0B;           /* Теплый янтарный для внимания */
+      --warning-light: #FEF3C7;
+      
+      --danger: #EF4444;            /* Рубиново-красный для штрафов и запретов */
+      --danger-light: #FEF2F2;
+      --danger-border: #FECACA;
+      
+      --bg-main: #F8FAFC;           /* Светлый ультра-чистый фон */
+      --bg-card: #FFFFFF;           /* Чисто-белые карточки */
+      --bg-muted: #F1F5F9;
+      --border-color: #E2E8F0;
+      
+      --text-dark: #0F172A;         /* Максимальная читаемость */
+      --text-muted: #475569;
+      --text-light: #64748B;
+      
+      --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.07), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-full: 9999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+      background-color: var(--bg-main);
+      color: var(--text-dark);
+      line-height: 1.5;
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* --------------------------------------------------------------------------
+       ВЕРХНЯЯ ШАПКА (HEADER)
+       -------------------------------------------------------------------------- */
+    header.main-header {
+      background: #FFFFFF;
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header-content {
+      max-width: 1440px;
+      margin: 0 auto;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    /* Логотип 35 Health Club */
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #FF5722 0%, #FF8A65 100%);
+      color: #FFFFFF;
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 22px;
+      letter-spacing: -1px;
+      box-shadow: 0 4px 10px rgba(255, 87, 34, 0.3);
+    }
+
+    .logo-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: 0.2px;
+      line-height: 1.1;
+    }
+
+    .logo-subtitle {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--primary);
+      letter-spacing: 1.5px;
+      margin-top: 2px;
+    }
+
+    /* Слот под загрузку изображения логотипа (если пользователь добавит файл рядом) */
+    .custom-logo-img {
+      max-height: 42px;
+      max-width: 160px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .header-quick-stats {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .stat-pill {
+      background: var(--bg-muted);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      padding: 6px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-pill strong {
+      color: var(--primary);
+    }
+
+    .stat-pill.success {
+      background: var(--success-light);
+      border-color: var(--success-border);
+      color: #065F46;
+    }
+    .stat-pill.success strong {
+      color: var(--success);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      font-size: 13.5px;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.15s ease-in-out;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 4px rgba(255, 87, 34, 0.25);
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-outline {
+      background: #FFFFFF;
+      border-color: var(--border-color);
+      color: var(--text-dark);
+    }
+    .btn-outline:hover {
+      background: var(--bg-muted);
+      border-color: #CBD5E1;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: var(--bg-muted);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 8px 12px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* --------------------------------------------------------------------------
+       ОСНОВНОЙ МАКЕТ: САЙДБАР + КОНТЕНТ
+       -------------------------------------------------------------------------- */
+    .app-layout {
+      max-width: 1440px;
+      margin: 0 auto;
+      width: 100%;
+      display: flex;
+      flex: 1;
+      position: relative;
+    }
+
+    /* Боковое меню (Sidebar) */
+    aside.sidebar {
+      width: 280px;
+      background: #FFFFFF;
+      border-right: 1px solid var(--border-color);
+      padding: 20px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: sticky;
+      top: 68px;
+      height: calc(100vh - 68px);
+      overflow-y: auto;
+      flex-shrink: 0;
+    }
+
+    .nav-group-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      color: var(--text-light);
+      letter-spacing: 1px;
+      padding: 12px 12px 4px 12px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      color: var(--text-muted);
+      font-weight: 600;
+      font-size: 14px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      position: relative;
+    }
+
+    .nav-item:hover {
+      background: var(--bg-muted);
+      color: var(--text-dark);
+    }
+
+    .nav-item.active {
+      background: var(--primary-light);
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .nav-item.active::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 6px;
+      bottom: 6px;
+      width: 4px;
+      background: var(--primary);
+      border-radius: 0 4px 4px 0;
+    }
+
+    .nav-icon {
+      font-size: 18px;
+      width: 22px;
+      text-align: center;
+    }
+
+    .nav-badge {
+      margin-left: auto;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: var(--radius-full);
+      background: var(--bg-muted);
+      color: var(--text-light);
+    }
+
+    .nav-item.active .nav-badge {
+      background: #FFFFFF;
+      color: var(--primary);
+    }
+
+    /* Основная зона контента */
+    main.content-area {
+      flex: 1;
+      padding: 28px 36px;
+      overflow-y: auto;
+      max-width: 1140px;
+    }
+
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.2s ease-in-out;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(4px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --------------------------------------------------------------------------
+       КАРТОЧКИ, БАННЕРЫ И БЛОКИ
+       -------------------------------------------------------------------------- */
+    .page-header {
+      margin-bottom: 24px;
+    }
+
+    .page-title {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .page-description {
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    /* Баннеры важной информации */
+    .alert-banner {
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 14.5px;
+    }
+
+    .alert-banner.warning {
+      background: #FFFBEB;
+      border: 1px solid #FDE68A;
+      color: #92400E;
+    }
+
+    .alert-banner.danger {
+      background: var(--danger-light);
+      border: 1px solid var(--danger-border);
+      color: #991B1B;
+    }
+
+    .alert-banner.success {
+      background: var(--success-light);
+      border: 1px solid var(--success-border);
+      color: #065F46;
+    }
+
+    .alert-banner.info {
+      background: var(--secondary-light);
+      border: 1px solid var(--secondary-border);
+      color: #075985;
+    }
+
+    .alert-icon {
+      font-size: 20px;
+      line-height: 1;
+    }
+
+    /* Бейджи */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: var(--radius-sm);
+    }
+    .badge-primary { background: var(--primary-light); color: var(--primary); }
+    .badge-success { background: var(--success-light); color: var(--success); }
+    .badge-danger { background: var(--danger-light); color: var(--danger); }
+    .badge-secondary { background: var(--secondary-light); color: var(--secondary); }
+
+    /* Таблицы */
+    .table-container {
+      overflow-x: auto;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: #FFFFFF;
+      margin-top: 12px;
+    }
+
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    table.data-table th {
+      background: #F8FAFC;
+      color: var(--text-dark);
+      font-weight: 700;
+      padding: 12px 16px;
+      border-bottom: 2px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    table.data-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    table.data-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    table.data-table tr:hover td {
+      background: #F8FAFC;
+    }
+
+    /* --------------------------------------------------------------------------
+       ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР МОТИВАЦИИ
+       -------------------------------------------------------------------------- */
+    .calc-container {
+      background: linear-gradient(145deg, #FFFFFF 0%, #FFF8F5 100%);
+      border: 2px solid var(--primary-border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+
+    .calc-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 28px;
+    }
+
+    .calc-input-group {
+      margin-bottom: 18px;
+    }
+
+    .calc-label {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: 14px;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+
+    .calc-range {
+      width: 100%;
+      accent-color: var(--primary);
+      cursor: pointer;
+      height: 6px;
+    }
+
+    .calc-number-input {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 15px;
+      font-weight: 600;
+      background: #FFFFFF;
+      color: var(--text-dark);
+    }
+    .calc-number-input:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(255, 87, 34, 0.15);
+    }
+
+    .calc-result-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .calc-stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 0;
+      border-bottom: 1px dashed var(--border-color);
+      font-size: 14px;
+    }
+
+    .calc-stat-row:last-child {
+      border-bottom: none;
+    }
+
+    .total-salary-box {
+      background: linear-gradient(135deg, #FF5722 0%, #E64A19 100%);
+      color: #FFFFFF;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      text-align: center;
+      margin-top: 14px;
+      box-shadow: 0 4px 12px rgba(255, 87, 34, 0.3);
+    }
+
+    .total-salary-label {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      opacity: 0.9;
+    }
+
+    .total-salary-val {
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.1;
+      margin: 4px 0;
+    }
+
+    /* --------------------------------------------------------------------------
+       ФИЛИАЛЫ И ИНТЕРАКТИВНЫЙ ПОИСК
+       -------------------------------------------------------------------------- */
+    .branch-controls {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .search-input-box {
+      flex: 1;
+      min-width: 260px;
+      position: relative;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 10px 14px 10px 38px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      font-size: 14.5px;
+      background: #FFFFFF;
+    }
+    .search-input:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--text-light);
+      pointer-events: none;
+    }
+
+    .filter-pills {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .filter-pill {
+      padding: 8px 14px;
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-full);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-muted);
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .filter-pill:hover {
+      background: var(--bg-muted);
+      color: var(--text-dark);
+    }
+    .filter-pill.active {
+      background: var(--secondary);
+      color: #FFFFFF;
+      border-color: var(--secondary);
+    }
+
+    .branches-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+
+    .branch-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 18px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      position: relative;
+      border-top: 4px solid var(--secondary);
+    }
+
+    .branch-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .branch-num {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--text-light);
+      background: var(--bg-muted);
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .branch-name {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .branch-district {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--secondary);
+      background: var(--secondary-light);
+      padding: 2px 8px;
+      border-radius: var(--radius-sm);
+      margin-bottom: 12px;
+    }
+
+    .branch-info-row {
+      font-size: 13.5px;
+      margin-bottom: 8px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--text-muted);
+    }
+
+    .branch-info-row strong {
+      color: var(--text-dark);
+      min-width: 72px;
+    }
+
+    .branch-copy-btn {
+      margin-top: 12px;
+      width: 100%;
+      padding: 7px;
+      background: var(--bg-muted);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-sm);
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      transition: background 0.15s ease;
+    }
+    .branch-copy-btn:hover {
+      background: #E2E8F0;
+    }
+
+    /* --------------------------------------------------------------------------
+       СКРИПТЫ, ВОЗРАЖЕНИЯ И TANITA
+       -------------------------------------------------------------------------- */
+    .dialogue-box {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      margin-bottom: 14px;
+    }
+
+    .speech-bubble {
+      padding: 12px 16px;
+      border-radius: var(--radius-md);
+      font-size: 14.5px;
+      line-height: 1.45;
+      margin-bottom: 10px;
+      position: relative;
+    }
+
+    .speech-bubble.assistant {
+      background: var(--primary-light);
+      border-left: 4px solid var(--primary);
+      color: #7C2D12;
+    }
+
+    .speech-bubble.client {
+      background: var(--bg-muted);
+      border-left: 4px solid #64748B;
+      color: #1E293B;
+    }
+
+    .speech-author {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+
+    .accordion-item {
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      margin-bottom: 10px;
+      background: #FFFFFF;
+      overflow: hidden;
+    }
+
+    .accordion-header {
+      padding: 14px 18px;
+      font-weight: 700;
+      font-size: 15px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #FFFFFF;
+      user-select: none;
+      transition: background 0.15s ease;
+    }
+    .accordion-header:hover {
+      background: #F8FAFC;
+    }
+
+    .accordion-body {
+      padding: 16px 18px;
+      background: #F8FAFC;
+      border-top: 1px solid var(--border-color);
+      font-size: 14px;
+      color: var(--text-muted);
+      display: none;
+    }
+    .accordion-item.open .accordion-body {
+      display: block;
+    }
+    .accordion-item.open .accordion-arrow {
+      transform: rotate(180deg);
+    }
+    .accordion-arrow {
+      transition: transform 0.2s ease;
+    }
+
+    /* Tanita интерактивные карточки */
+    .tanita-metric-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      transition: all 0.15s ease;
+    }
+    .tanita-metric-card:hover {
+      border-color: var(--secondary);
+      box-shadow: var(--shadow-sm);
+    }
+    .metric-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: var(--secondary-light);
+      color: var(--secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    /* Чеклист */
+    .checklist-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-color);
+      margin-bottom: 8px;
+      background: #FFFFFF;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .checklist-item:hover {
+      background: #F8FAFC;
+    }
+    .checklist-item.done {
+      background: var(--success-light);
+      border-color: var(--success-border);
+      text-decoration: line-through;
+      color: #065F46;
+    }
+    .checklist-checkbox {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--success);
+      margin-top: 2px;
+      cursor: pointer;
+    }
+
+    /* Шаблоны отчетов */
+    .template-box {
+      background: #1E293B;
+      color: #F8FAFC;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 13px;
+      white-space: pre-wrap;
+      position: relative;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .copy-template-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: #334155;
+      color: #FFFFFF;
+      border: none;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+    .copy-template-btn:hover {
+      background: #475569;
+    }
+
+    /* Тест / Квиз */
+    .quiz-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      margin-bottom: 16px;
+    }
+    .quiz-question {
+      font-weight: 700;
+      font-size: 16px;
+      color: var(--text-dark);
+      margin-bottom: 14px;
+    }
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quiz-opt {
+      padding: 10px 14px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-md);
+      background: var(--bg-muted);
+      cursor: pointer;
+      font-size: 14px;
+      transition: all 0.15s ease;
+    }
+    .quiz-opt:hover {
+      background: #E2E8F0;
+    }
+    .quiz-opt.correct {
+      background: var(--success-light);
+      border-color: var(--success);
+      color: #065F46;
+      font-weight: 700;
+    }
+    .quiz-opt.incorrect {
+      background: var(--danger-light);
+      border-color: var(--danger);
+      color: #991B1B;
+    }
+
+    /* Подвал (Footer) */
+    footer.main-footer {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-color);
+      padding: 20px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      margin-top: auto;
+    }
+
+    /* Адаптивность для смартфонов и планшетов */
+    @media (max-width: 960px) {
+      .header-content {
+        flex-wrap: wrap;
+      }
+      .calc-grid {
+        grid-template-columns: 1fr;
+      }
+      .grid-3, .grid-4 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      aside.sidebar {
+        position: fixed;
+        left: -290px;
+        top: 0;
+        bottom: 0;
+        height: 100vh;
+        z-index: 100;
+        box-shadow: var(--shadow-lg);
+        transition: left 0.25s ease-in-out;
+      }
+      aside.sidebar.mobile-open {
+        left: 0;
+      }
+      .mobile-menu-btn {
+        display: block;
+      }
+      main.content-area {
+        padding: 20px 16px;
+      }
+      .sidebar-backdrop {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.4);
+        z-index: 90;
+      }
+      .sidebar-backdrop.active {
+        display: block;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .grid-2, .grid-3, .grid-4 {
+        grid-template-columns: 1fr;
+      }
+      .header-quick-stats {
+        display: none;
+      }
+    }
+
+    /* Стили для печати */
+    @media print {
+      header.main-header, aside.sidebar, .header-actions, .mobile-menu-btn, .branch-copy-btn, .copy-template-btn, .calc-range {
+        display: none !important;
+      }
+      main.content-area {
+        padding: 0 !important;
+      }
+      .tab-content {
+        display: block !important;
+        page-break-after: always;
+      }
+      .card {
+        box-shadow: none !important;
+        border: 1px solid #CCC !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ВЕРХНЯЯ НАВИГАЦИОННАЯ ПАНЕЛЬ (HEADER) -->
+  <header class="main-header">
+    <div class="header-content">
+      
+      <div class="brand-section">
+        <button class="mobile-menu-btn" onclick="toggleMobileSidebar()" aria-label="Меню">☰</button>
+        
+        <div class="logo-container">
+          <!-- Опциональный слот для картинки логотипа из локального файла -->
+          <img id="custom-logo" class="custom-logo-img" src="logo.png" alt="35 Health Club" onerror="this.style.display='none'; document.getElementById('vector-logo').style.display='flex';" style="display:none;" />
+          
+          <!-- Векторный спортивный логотип-бейдж -->
+          <div id="vector-logo" style="display:flex; align-items:center; gap:12px;">
+            <div class="logo-badge">35'</div>
+            <div class="logo-text">
+              <span class="logo-title">35` HEALTH CLUB</span>
+              <span class="logo-subtitle">Tashkent • База знаний ассистента</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Быстрые факты и показатели -->
+      <div class="header-quick-stats">
+        <div class="stat-pill">📍 <strong>17</strong> филиалов в Ташкенте</div>
+        <div class="stat-pill">🎯 Мин. план: <strong>2 визита</strong> / 4 ч</div>
+        <div class="stat-pill success">💰 До <strong>7%</strong> бонус с продаж</div>
+        <div class="stat-pill" style="border-color:#FCA5A5; color:#991B1B;">⛔ Строго <strong>21+</strong></div>
+      </div>
+
+      <!-- Кнопки быстрых действий -->
+      <div class="header-actions">
+        <button class="btn btn-outline" onclick="window.print()" title="Распечатать или сохранить в PDF">
+          <span>🖨️</span> Распечатать
+        </button>
+        <button class="btn btn-primary" onclick="switchTab('calc')" title="Рассчитать заработную плату">
+          <span>💰</span> Калькулятор ЗП
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ЗАТЕМНЕНИЕ ДЛЯ МОБИЛЬНОГО МЕНЮ -->
+  <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="toggleMobileSidebar()"></div>
+
+  <!-- ОСНОВНОЙ КОНТЕЙНЕР ПРИЛОЖЕНИЯ -->
+  <div class="app-layout">
+    
+    <!-- БОКОВОЕ МЕНЮ (SIDEBAR) -->
+    <aside class="sidebar" id="app-sidebar">
+      
+      <div class="nav-group-title">Старт и основы</div>
+      <div class="nav-item active" onclick="switchTab('intro')">
+        <span class="nav-icon">🏢</span>
+        <span>О сети и роли</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('regulations')">
+        <span class="nav-icon">📜</span>
+        <span>Регламент работы</span>
+        <span class="nav-badge">8 разд.</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('fines')">
+        <span class="nav-icon">⛔</span>
+        <span>Штрафная сетка</span>
+        <span class="nav-badge" style="background:#FEE2E2; color:#DC2626;">Важно</span>
+      </div>
+
+      <div class="nav-group-title">Мотивация и локации</div>
+      <div class="nav-item" onclick="switchTab('kpi')">
+        <span class="nav-icon">📊</span>
+        <span>KPI и Условия</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('calc')">
+        <span class="nav-icon">🧮</span>
+        <span>Калькулятор дохода</span>
+        <span class="nav-badge" style="background:#DCFCE7; color:#16A34A;">Live</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('branches')">
+        <span class="nav-icon">📍</span>
+        <span>17 филиалов сети</span>
+        <span class="nav-badge">17</span>
+      </div>
+
+      <div class="nav-group-title">Практика и мастерство</div>
+      <div class="nav-item" onclick="switchTab('scripts')">
+        <span class="nav-icon">🗣️</span>
+        <span>Скрипты перехвата</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('objections')">
+        <span class="nav-icon">🛡️</span>
+        <span>Отработка возражений</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('tanita')">
+        <span class="nav-icon">⚖️</span>
+        <span>Диагностика Tanita</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('checklist')">
+        <span class="nav-icon">✅</span>
+        <span>Чек-лист смены и CRM</span>
+      </div>
+      <div class="nav-item" onclick="switchTab('quiz')">
+        <span class="nav-icon">🎓</span>
+        <span>Тест стажера</span>
+      </div>
+
+    </aside>
+
+    <!-- ОСНОВНАЯ ОБЛАСТЬ КОНТЕНТА -->
+    <main class="content-area">
+
+      <!-- ====================================================================
+           ВКЛАДКА 1: О СЕТИ И РОЛИ ФИТНЕС-АССИСТЕНТА
+           ==================================================================== -->
+      <section id="tab-intro" class="tab-content active">
+        <div class="page-header">
+          <h1 class="page-title">🏢 Добро пожаловать в команду 35' Health Club!</h1>
+          <p class="page-description">Твоя главная база знаний, навигатор и рабочий инструмент для легкой стажировки и максимального заработка.</p>
+        </div>
+
+        <div class="alert-banner info">
+          <span class="alert-icon">💡</span>
+          <div>
+            <strong>Фитнес-ассистент (промо-консультант)</strong> — это «первая линия» и визитная карточка нашего клуба. Ты первым знакомишь жителей Ташкента со здоровым образом жизни, открываешь им мир умных тренировок и помогаешь сделать первый шаг в зал.
+          </div>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-title">🎯 Твоя ключевая задача</div>
+            <p style="color:var(--text-muted); font-size:14px; margin-bottom:12px;">
+              Работать у локации филиала, привлекать проходящий трафик людей с улицы, презентовать клуб и бесплатно диагностировать состав тела на японском оборудовании <strong>Tanita</strong>.
+            </p>
+            <span class="badge badge-primary">Воронка: Улица ➔ Зал ➔ Запись</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">🎁 Что получает клиент?</div>
+            <p style="color:var(--text-muted); font-size:14px; margin-bottom:12px;">
+              Экспресс-диагностику здоровья за 3 минуты: % жира, мышечная масса, биологический возраст + возможность записаться на персональную тренировку к сертифицированному тренеру.
+            </p>
+            <span class="badge badge-secondary">Бесплатно или 120 000 сум</span>
+          </div>
+
+          <div class="card">
+            <div class="card-title">💸 Что получаешь ты?</div>
+            <p style="color:var(--text-muted); font-size:14px; margin-bottom:12px;">
+              Почасовую ставку <strong>12 000 сум/час</strong>, выплату за каждый визит клиента (<strong>50 000 – 60 000 сум</strong>) + высокий процент от продажи абонементов тренером (до <strong>7%</strong>)!
+            </p>
+            <span class="badge badge-success">Реально от 5 до 15 млн сум/мес</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🔄 Эталонная воронка рабочего дня фитнес-ассистента</div>
+          <div class="grid-4" style="margin-top:16px;">
+            <div style="background:#F8FAFC; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:center;">
+              <div style="font-size:26px; margin-bottom:6px;">1️⃣</div>
+              <div style="font-weight:700; margin-bottom:4px;">Встреча на улице</div>
+              <div style="font-size:13px; color:var(--text-muted);">Активная стойка, дружелюбный «Stop-hook» и проверка возраста (21+)</div>
+            </div>
+            <div style="background:#F8FAFC; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:center;">
+              <div style="font-size:26px; margin-bottom:6px;">2️⃣</div>
+              <div style="font-weight:700; margin-bottom:4px;">Заход в филиал</div>
+              <div style="font-size:13px; color:var(--text-muted);">Короткая презентация уюта клуба и проход к весам Tanita</div>
+            </div>
+            <div style="background:#F8FAFC; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:center;">
+              <div style="font-size:26px; margin-bottom:6px;">3️⃣</div>
+              <div style="font-weight:700; margin-bottom:4px;">Диагностика Tanita</div>
+              <div style="font-size:13px; color:var(--text-muted);">Замер за 180 сек, яркая интерпретация цифр и выявление цели</div>
+            </div>
+            <div style="background:#F8FAFC; border:1px solid var(--border-color); border-radius:var(--radius-md); padding:16px; text-align:center;">
+              <div style="font-size:26px; margin-bottom:6px;">4️⃣</div>
+              <div style="font-weight:700; margin-bottom:4px;">Запись к тренеру</div>
+              <div style="font-size:13px; color:var(--text-muted);">Фиксация в личную ссылку, передача тренеру и внесение в CRM</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card" style="background:#FFF7ED; border-color:#FFEDD5;">
+          <div class="card-title" style="color:#C2410C;">⚠️ Главные "железные" правила клуба</div>
+          <ul style="padding-left:20px; font-size:14.5px; color:#9A3412; display:flex; flex-direction:column; gap:8px;">
+            <li><strong>Возрастное ограничение строго 21+:</strong> Несовершеннолетних и лиц младше 21 года заводить в зал и записывать категорически запрещено!</li>
+            <li><strong>Дисциплина открытия смены:</strong> Прибыл вовремя ➔ поздоровался с тренером ➔ отправил видео-кружочек с геопозицией и формой в чат.</li>
+            <li><strong>Активная стойка:</strong> Никаких прислонений к столбам, сидения на корточках или зависания в TikTok. Мы работаем на максимальный контакт с людьми!</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 2: ПОЛНЫЙ РЕГЛАМЕНТ РАБОТЫ
+           ==================================================================== -->
+      <section id="tab-regulations" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">📜 Официальный регламент работы отдела</h1>
+          <p class="page-description">Отдел Промо-консультантов | 35 Health Club. Обязателен к изучению каждым стажером.</p>
+        </div>
+
+        <!-- 1. Общие положения -->
+        <div class="card">
+          <div class="card-title">1. Общие положения и Иерархия</div>
+          <ul style="padding-left:20px; color:var(--text-muted); font-size:14.5px; display:flex; flex-direction:column; gap:6px;">
+            <li><strong>Основная цель промо-консультанта:</strong> Активное привлечение целевого трафика на локации, проведение презентации, проведение диагностики и фиксация записей клиентов на пробную тренировку в клуб.</li>
+            <li><strong>Прямое подчинение:</strong> Тим-лид, Руководитель отдела промоутеров и Старшие промоутеры. Все отчеты, вопросы по графику и внештатным ситуациям решаются строго через них.</li>
+          </ul>
+        </div>
+
+        <!-- 2. График работы, оплата и отчетность -->
+        <div class="card">
+          <div class="card-title">2. График работы, Оплата и Отчетность</div>
+          <div class="grid-2" style="margin-bottom:16px;">
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+              <div style="font-weight:700; color:var(--text-dark); margin-bottom:4px;">⏰ Смены и часы</div>
+              <div style="font-size:14px; color:var(--text-muted);">
+                • Мин. время смены: <strong>4 часа</strong>.<br>
+                • <strong>Утренняя смена:</strong> 08:00 – 12:00<br>
+                • <strong>Вечерняя смена:</strong> 17:00 – 21:00<br>
+                <em>Смещение начала смены подлежит согласованию с вышестоящими лицами.</em>
+              </div>
+            </div>
+
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md); border:1px solid var(--border-color);">
+              <div style="font-weight:700; color:var(--text-dark); margin-bottom:4px;">💵 Базовая ставка и собрания</div>
+              <div style="font-size:14px; color:var(--text-muted);">
+                • Оплата труда: <strong>12 000 сум</strong> за каждый отработанный час.<br>
+                • Согласованная переработка оплачивается по той же ставке.<br>
+                • <strong>Собрания:</strong> каждое воскресенье во 2-й половине дня. Предупреждать об отсутствии минимум за 1 день.
+              </div>
+            </div>
+          </div>
+
+          <div style="font-weight:700; color:var(--text-dark); margin-bottom:8px;">Правила открытия и закрытия смены:</div>
+          <ol style="padding-left:20px; color:var(--text-muted); font-size:14px; display:flex; flex-direction:column; gap:6px;">
+            <li>По прибытии на локацию отправить текстовый отчет об открытии смены в общую рабочую группу.</li>
+            <li>Отчет <strong>в обязательном порядке</strong> сопровождается видеосообщением (кружочком) с текущей геопозиции: четко видно лицо промоутера, фирменную форму и рабочую локацию.</li>
+            <li>Все визиты и записи вносятся в вашу личную ссылку. Ссылка не подлежит передаче посторонним лицам.</li>
+            <li>Все визиты и записи вносятся в вашу личную группу / избранное со всеми данными клиента (Имя, номер телефона, день и время визита).</li>
+            <li><strong>При наличии визита:</strong> отправить в группу «Отряд Промо-консультантов» в раздел «Записи» скрин и подпись <code>+1 визит</code>.</li>
+            <li><strong>При наличии записи:</strong> отправить в группу «Отряд Промо-консультантов» в раздел «Записи» сообщение <code>+1</code> (скрин не нужен).</li>
+            <li><strong style="color:var(--danger);">СТРОГО ЗАПРЕЩЕНО заводить или записывать лиц младше 21-го года!</strong> Перед тем, как завести, промоутер обязан уточнить возраст клиента.</li>
+            <li>По окончанию смены зайти на филиал и проконтролировать внесение тренером в CRM его визитов (в заметках тренер указывает, от кого пришел человек). Записи через тренера не вносятся.</li>
+            <li>Каждый промоутер привязан к определенному филиалу. Смена филиала — только через Тим-лида.</li>
+            <li>При открытии и закрытии смены обязательно зайти на филиал и оповестить дежурного тренера.</li>
+            <li>Окончание смены фиксируется итоговым отчетом в рабочую группу (записи, визиты, отработанные часы).</li>
+          </ol>
+        </div>
+
+        <!-- 3. Эффективность и KPI -->
+        <div class="card">
+          <div class="card-title">3. Эффективность и выполнение нормативов</div>
+          <div class="grid-3">
+            <div style="background:#F0FDF4; border:1px solid var(--success-border); padding:16px; border-radius:var(--radius-md);">
+              <div style="font-weight:800; color:#166534; font-size:16px; margin-bottom:4px;">🎯 Минимальный план</div>
+              <div style="font-size:14px; color:#14532D;">
+                Норматив для каждого промо-консультанта составляет <strong>минимум 2 успешных визита</strong> за 4-часовую смену.
+              </div>
+            </div>
+
+            <div style="background:#FFFBEB; border:1px solid #FDE68A; padding:16px; border-radius:var(--radius-md);">
+              <div style="font-weight:800; color:#92400E; font-size:16px; margin-bottom:4px;">🔄 Компенсация плана</div>
+              <div style="font-size:14px; color:#78350F;">
+                При невыполнении плана в течение следующих 2 дней промоутер обязан компенсировать визиты (на след. день — минимум <strong>4 успешных визита</strong>).
+              </div>
+            </div>
+
+            <div style="background:#FEF2F2; border:1px solid var(--danger-border); padding:16px; border-radius:var(--radius-md);">
+              <div style="font-weight:800; color:#991B1B; font-size:16px; margin-bottom:4px;">⚠️ Критерий неэффективности</div>
+              <div style="font-size:14px; color:#7F1D1D;">
+                Систематический результат менее 2-х визитов за 4 часа — смена считается неэффективной. Тим-лид имеет право пересмотреть оплату или отстранить от работы.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 & 5. Дресс-код и Правила поведения -->
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">4. Внешний вид (Дресс-код)</div>
+            <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:10px;">Промо-консультант — лицо клуба. Внешний вид должен вызывать доверие и располагать к общению.</p>
+            <ul style="padding-left:18px; font-size:14px; color:var(--text-dark); display:flex; flex-direction:column; gap:6px;">
+              <li>Одежда должна быть чистой, выглаженной и опрятной.</li>
+              <li><strong>Обязательно:</strong> носить фирменную одежду клуба на протяжении всей смены (кроме перерывов и обеда).</li>
+              <li>Стиль аккуратный casual: джинсы или брюки, закрытая обувь.</li>
+              <li><strong style="color:var(--danger);">Категорически запрещено:</strong> выходить на смену в шортах или юбках выше колена, в шлёпанцах или неопрятном виде.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title">5. Правила поведения на локации</div>
+            <ul style="padding-left:18px; font-size:14px; color:var(--text-dark); display:flex; flex-direction:column; gap:8px;">
+              <li><strong>Активная стойка:</strong> Запрещено сидеть, облокачиваться на стены, витрины или столбы. Находиться в движении и активно встречать поток людей.</li>
+              <li><strong>Телефон:</strong> Только для рабочих целей (CRM, таблица, связь с тимлидом). Игры, соцсети, видео и личные переписки строго запрещены.</li>
+              <li><strong>Работа в команде:</strong> Запрещено собираться группами по 2-3 человека и болтать. Промоутеры распределяются по локации для охвата трафика.</li>
+              <li><strong>Привычки:</strong> Запрещено жевать жвачку при общении, курить (в т.ч. вейпы) в зоне видимости людей, есть на точке.</li>
+              <li><strong>Обед:</strong> Запрещено брать обеденный перерыв в последний час смены.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6 & 7. Стажировка и Старшие промо-консультанты -->
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">6. Порядок стажировки (7 дней)</div>
+            <ul style="padding-left:18px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:6px;">
+              <li>Длительность: <strong>7 дней</strong>. Первые 3 дня проходят под присмотром опытного наставника.</li>
+              <li><strong>Стажировка оплачивается!</strong></li>
+              <li>Стажер получает скрипты для работы, обучается преодолению возражений и правилам отчетности.</li>
+              <li>Во время стажировки промоутер использует ссылку наставника, но ведет свой отдельный дублирующий учет.</li>
+              <li>Все стажеры обязательно проходят обучение у дежурных тренеров своего филиала.</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-title">7. Старшие промо-консультанты</div>
+            <ul style="padding-left:18px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:6px;">
+              <li>Отвечают за организацию, координацию и контроль дисциплины промо-консультантов.</li>
+              <li>Составляют и отправляют ротацию за день <strong>до 23:00</strong>.</li>
+              <li>Присутствуют на еженедельных собраниях старших.</li>
+              <li>Следят за выполнением регламента, геолокацией, честностью отчетов и пресекают любые попытки фрода.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="alert-banner warning" style="margin-top:10px;">
+          <span class="alert-icon">⚖️</span>
+          <div>
+            <strong>НЕЗНАНИЕ ПРАВИЛ НЕ ОСВОБОЖДАЕТ ОТ ОТВЕТСТВЕННОСТИ!</strong><br>
+            Регламент работы должен быть прочитан и строго соблюдаться каждым сотрудником с первого дня стажировки.
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 3: ШТРАФНАЯ СЕТКА
+           ==================================================================== -->
+      <section id="tab-fines" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">⛔ Штрафная сетка дисциплины</h1>
+          <p class="page-description">Система штрафов вводится для поддержания строгой командной дисциплины. Все штрафы удерживаются из заработной платы.</p>
+        </div>
+
+        <div class="alert-banner danger">
+          <span class="alert-icon">🚨</span>
+          <div>
+            <strong>Внимание к качеству и честности:</strong> Махинации с номерами (фрод) и невыход на смену без предупреждения наказываются максимальными штрафами вплоть до увольнения без выплаты вознаграждения.
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Таблица нарушений и финансовых санкций</div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th style="width: 45%;">Характер нарушения</th>
+                  <th style="width: 25%;">Размер штрафа (UZS)</th>
+                  <th style="width: 30%;">Последствия и комментарий</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Опоздание на смену</strong> (без предварительного предупреждения руководства)</td>
+                  <td><span class="badge badge-danger">50 000 сум</span></td>
+                  <td>Необходимо предупреждать тимлида заранее</td>
+                </tr>
+                <tr style="background:#FEF2F2;">
+                  <td><strong>Невыход на смену</strong> (без предварительного предупреждения)</td>
+                  <td><span class="badge badge-danger" style="font-size:13px; font-weight:800;">200 000 сум</span></td>
+                  <td>Срыв графика работы точки и дисциплины</td>
+                </tr>
+                <tr style="background:#FFF1F2;">
+                  <td><strong>Фрод (Махинации):</strong> Указание несуществующих/фейковых номеров, запись знакомых ради галочки</td>
+                  <td><span class="badge badge-danger">От 50 000 сум до УВОЛЬНЕНИЯ</span></td>
+                  <td>Решение принимается руководством незамедлительно</td>
+                </tr>
+                <tr>
+                  <td><strong>Нарушение дресс-кода</strong> (выход в юбке выше колена / шортах / неопрятный вид)</td>
+                  <td><span class="badge badge-danger">30 000 сум</span></td>
+                  <td>+ Немедленная отправка домой для переодевания</td>
+                </tr>
+                <tr>
+                  <td><strong>Самовольный уход с рабочей точки</strong> или досрочное закрытие смены</td>
+                  <td><span class="badge badge-danger">Дневная выручка (от 50 000 сум)</span></td>
+                  <td>Смена не засчитывается</td>
+                </tr>
+                <tr>
+                  <td><strong>Отсутствие видео-кружочка</strong> при открытии смены</td>
+                  <td><span class="badge badge-danger">20 000 сум</span></td>
+                  <td>Обязателен при каждом выходе на точку</td>
+                </tr>
+                <tr>
+                  <td><strong>Отсутствие геолокации</strong> при открытии смены</td>
+                  <td><span class="badge badge-danger">20 000 сум</span></td>
+                  <td>Геолокация подтверждает нахождение на объекте</td>
+                </tr>
+                <tr>
+                  <td><strong>Отсутствие фирменной одежды</strong> на видео-кружочке</td>
+                  <td><span class="badge badge-danger">20 000 сум</span></td>
+                  <td>Футболка/поло клуба должны быть надеты</td>
+                </tr>
+                <tr>
+                  <td><strong>Начало обеденного перерыва</strong> в последний час рабочей смены</td>
+                  <td><span class="badge badge-danger">20 000 сум</span></td>
+                  <td>Последний час — пиковый по трафику</td>
+                </tr>
+                <tr>
+                  <td><strong>Отсутствие на собрании</strong> без предварительного предупреждения</td>
+                  <td><span class="badge badge-danger">30 000 сум</span></td>
+                  <td>Предупреждать минимум за 1 сутки до воскресенья</td>
+                </tr>
+                <tr>
+                  <td><strong>Своевольное изменение графика работы</strong></td>
+                  <td><span class="badge badge-danger">50 000 сум</span></td>
+                  <td>Любые сдвиги согласуются только с Тим-лидом</td>
+                </tr>
+                <tr>
+                  <td><strong>Самовольная смена филиала</strong></td>
+                  <td><span class="badge badge-danger">50 000 сум</span></td>
+                  <td>Промоутер привязан к конкретному залу</td>
+                </tr>
+                <tr>
+                  <td><strong>Не заход на филиал / не осведомление тренера</strong> при открытии или закрытии смены</td>
+                  <td><span class="badge badge-danger">30 000 сум</span></td>
+                  <td>Обязательно лично отметиться у тренера зала</td>
+                </tr>
+                <tr>
+                  <td><strong>Грубость / неуважительное поведение</strong> при общении с тренерами или клиентами</td>
+                  <td><span class="badge badge-danger">50 000 сум</span></td>
+                  <td>В клубе действует строгая культура уважения</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 4: KPI И УСЛОВИЯ ОПЛАТЫ
+           ==================================================================== -->
+      <section id="tab-kpi" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">📊 Система оплаты труда и KPI</h1>
+          <p class="page-description">Прозрачная модель мотивации: фиксированный доход + выплата за каждый визит + процент от продаж клуба.</p>
+        </div>
+
+        <div class="grid-4" style="margin-bottom:20px;">
+          <div class="card" style="margin-bottom:0; text-align:center; border-top:4px solid var(--primary);">
+            <div style="font-size:12px; font-weight:700; color:var(--text-light); text-transform:uppercase;">Фиксированный оклад</div>
+            <div style="font-size:24px; font-weight:900; color:var(--text-dark); margin:6px 0;">1 200 000 сум</div>
+            <div style="font-size:12px; color:var(--text-muted);">110 часов, график 6/1 (12 000 сум/час)</div>
+          </div>
+
+          <div class="card" style="margin-bottom:0; text-align:center; border-top:4px solid var(--secondary);">
+            <div style="font-size:12px; font-weight:700; color:var(--text-light); text-transform:uppercase;">Бесплатный визит</div>
+            <div style="font-size:24px; font-weight:900; color:var(--secondary); margin:6px 0;">50 000 сум</div>
+            <div style="font-size:12px; color:var(--text-muted);">За каждого приведенного на Tanita</div>
+          </div>
+
+          <div class="card" style="margin-bottom:0; text-align:center; border-top:4px solid var(--success);">
+            <div style="font-size:12px; font-weight:700; color:var(--text-light); text-transform:uppercase;">Платный визит (120k)</div>
+            <div style="font-size:24px; font-weight:900; color:var(--success); margin:6px 0;">60 000 сум</div>
+            <div style="font-size:12px; color:var(--text-muted);">50% от стоимости тренировки</div>
+          </div>
+
+          <div class="card" style="margin-bottom:0; text-align:center; border-top:4px solid var(--warning);">
+            <div style="font-size:12px; font-weight:700; color:var(--text-light); text-transform:uppercase;">Бонус от оборота</div>
+            <div style="font-size:24px; font-weight:900; color:var(--warning); margin:6px 0;">от 3% до 7%</div>
+            <div style="font-size:12px; color:var(--text-muted);">От купленных абонементов</div>
+          </div>
+        </div>
+
+        <!-- Таблицы со скриншота -->
+        <div class="card">
+          <div class="card-title">Шкала бонусов от личного оборота продаж</div>
+          <p style="font-size:14px; color:var(--text-muted); margin-bottom:12px;">
+            Когда приведенный тобой клиент покупает персональные тренировки или абонемент в клубе, ты получаешь прямой процент от всей суммы оплаты:
+          </p>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Параметр</th>
+                  <th>Процент бонуса</th>
+                  <th>Условие начисления</th>
+                  <th>Пример на 50 визитов</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Бонус 1 ступени</strong></td>
+                  <td><span class="badge badge-primary">3%</span></td>
+                  <td>Конверсия визитов в покупку выше <strong>20%</strong></td>
+                  <td>~8 продаж (оборот 52 млн) ➔ <strong>+1 560 000 сум</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Бонус 2 ступени</strong></td>
+                  <td><span class="badge badge-primary">4%</span></td>
+                  <td>Конверсия визитов в покупку выше <strong>30%</strong></td>
+                  <td>~15 продаж (оборот 97.5 млн) ➔ <strong>+3 900 000 сум</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>Бонус 3 ступени</strong></td>
+                  <td><span class="badge badge-success">5%</span></td>
+                  <td>Конверсия визитов в покупку выше <strong>40%</strong></td>
+                  <td>~20 продаж (оборот 130 млн) ➔ <strong>+6 500 000 сум</strong></td>
+                </tr>
+                <tr style="background:#ECFDF5;">
+                  <td><strong>Бонус ТОП-уровня</strong></td>
+                  <td><span class="badge badge-success" style="font-size:13px; font-weight:800;">7%</span></td>
+                  <td>Конверсия визитов в покупку выше <strong>50%</strong></td>
+                  <td>~25 продаж (оборот 162.5 млн) ➔ <strong>+11 375 000 сум</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Симуляция заработка (при среднем чеке абонемента 6 500 000 сум)</div>
+          <div class="table-container">
+            <table class="data-table">
+              <thead>
+                <tr style="background:#0F172A; color:#FFFFFF;">
+                  <th style="color:#FFF;">Визиты</th>
+                  <th style="color:#FFF;">Конверсия</th>
+                  <th style="color:#FFF;">Кол-во продаж</th>
+                  <th style="color:#FFF;">Оборот клуба</th>
+                  <th style="color:#FFF;">% Бонуса</th>
+                  <th style="color:#FFF;">Сумма бонуса</th>
+                  <th style="color:#FFF;">Сумма визитов</th>
+                  <th style="color:#34D399; font-weight:800;">ИТОГОВАЯ ЗП</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>50</strong></td>
+                  <td>20%</td>
+                  <td>8</td>
+                  <td>52 000 000 сум</td>
+                  <td>3%</td>
+                  <td>1 560 000 сум</td>
+                  <td>2 500 000 сум</td>
+                  <td><strong style="color:var(--text-dark); font-size:16px;">5 260 000 сум</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>50</strong></td>
+                  <td>30%</td>
+                  <td>15</td>
+                  <td>97 500 000 сум</td>
+                  <td>4%</td>
+                  <td>3 900 000 сум</td>
+                  <td>2 500 000 сум</td>
+                  <td><strong style="color:var(--text-dark); font-size:16px;">7 600 000 сум</strong></td>
+                </tr>
+                <tr>
+                  <td><strong>50</strong></td>
+                  <td>40%</td>
+                  <td>20</td>
+                  <td>130 000 000 сум</td>
+                  <td>5%</td>
+                  <td>6 500 000 сум</td>
+                  <td>2 500 000 сум</td>
+                  <td><strong style="color:var(--primary); font-size:17px;">10 200 000 сум</strong></td>
+                </tr>
+                <tr style="background:#F0FDF4;">
+                  <td><strong>50</strong></td>
+                  <td><strong>50%</strong></td>
+                  <td>25</td>
+                  <td>162 500 000 сум</td>
+                  <td><strong>7%</strong></td>
+                  <td><strong>11 375 000 сум</strong></td>
+                  <td>2 500 000 сум</td>
+                  <td><strong style="color:#059669; font-size:19px;">15 075 000 сум</strong></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div style="font-size:12.5px; color:var(--text-light); margin-top:8px;">
+            * Итоговая зарплата включает фиксированный оклад 1 200 000 сум за 110 часов работы.
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 5: ИНТЕРАКТИВНЫЙ КАЛЬКУЛЯТОР ДОХОДА
+           ==================================================================== -->
+      <section id="tab-calc" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">🧮 Интерактивный калькулятор дохода стажера</h1>
+          <p class="page-description">Управляй своими параметрами и смотри, сколько ты заработаешь в этом месяце в реальном времени!</p>
+        </div>
+
+        <div class="calc-container">
+          <div class="calc-grid">
+            
+            <!-- Левая колонка: Входные параметры -->
+            <div>
+              <div class="card-title" style="margin-bottom:18px;">⚙️ Твои параметры работы</div>
+
+              <!-- Часы работы -->
+              <div class="calc-input-group">
+                <div class="calc-label">
+                  <span>Отработано часов в месяц:</span>
+                  <span id="label-hours" style="color:var(--primary); font-weight:800;">110 часов</span>
+                </div>
+                <input type="range" id="input-hours" class="calc-range" min="20" max="220" step="5" value="110" oninput="calculateSalary()" />
+                <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-light); margin-top:4px;">
+                  <span>20 ч (подработка)</span>
+                  <span>110 ч (стандарт 6/1)</span>
+                  <span>200+ ч (максимум)</span>
+                </div>
+              </div>
+
+              <!-- Бесплатные визиты -->
+              <div class="calc-input-group">
+                <div class="calc-label">
+                  <span>Бесплатных визитов (Tanita):</span>
+                  <span id="label-visits" style="color:var(--secondary); font-weight:800;">40 чел</span>
+                </div>
+                <input type="range" id="input-visits" class="calc-range" min="0" max="150" step="2" value="40" oninput="calculateSalary()" />
+                <div style="font-size:11.5px; color:var(--text-muted); margin-top:2px;">Выплата: 50 000 сум за каждый визит</div>
+              </div>
+
+              <!-- Платные визиты -->
+              <div class="calc-input-group">
+                <div class="calc-label">
+                  <span>Платных визитов (по 120 000 сум):</span>
+                  <span id="label-paid-visits" style="color:var(--success); font-weight:800;">10 чел</span>
+                </div>
+                <input type="range" id="input-paid-visits" class="calc-range" min="0" max="50" step="1" value="10" oninput="calculateSalary()" />
+                <div style="font-size:11.5px; color:var(--text-muted); margin-top:2px;">Выплата: 50% = 60 000 сум тебе в карман!</div>
+              </div>
+
+              <!-- Конверсия в продажи абонементов -->
+              <div class="calc-input-group">
+                <div class="calc-label">
+                  <span>Конверсия тренеров в продажи:</span>
+                  <span id="label-conv" style="color:var(--warning); font-weight:800;">30%</span>
+                </div>
+                <input type="range" id="input-conv" class="calc-range" min="0" max="70" step="5" value="30" oninput="calculateSalary()" />
+                <div style="display:flex; justify-content:space-between; font-size:11px; color:var(--text-light); margin-top:4px;">
+                  <span>до 20% (0%)</span>
+                  <span>20%+ (3%)</span>
+                  <span>30%+ (4%)</span>
+                  <span>40%+ (5%)</span>
+                  <span>50%+ (7%)</span>
+                </div>
+              </div>
+
+              <div style="font-size:12px; color:var(--text-light);">
+                * Расчет оборота ведется по среднему чеку абонемента сети: 6 500 000 сум.
+              </div>
+            </div>
+
+            <!-- Правая колонка: Итоговая разбивка -->
+            <div class="calc-result-box">
+              <div>
+                <div style="font-weight:800; font-size:16px; color:var(--text-dark); margin-bottom:12px; border-bottom:1px solid var(--border-color); padding-bottom:8px;">
+                  📑 Детализация выплат
+                </div>
+
+                <div class="calc-stat-row">
+                  <span>Оклад (<span id="stat-hours">110</span> ч × 12 000 сум):</span>
+                  <strong id="res-base">1 320 000 сум</strong>
+                </div>
+
+                <div class="calc-stat-row">
+                  <span>За бесплатные визиты (<span id="stat-free-count">40</span>):</span>
+                  <strong id="res-free">2 000 000 сум</strong>
+                </div>
+
+                <div class="calc-stat-row">
+                  <span>За платные визиты (<span id="stat-paid-count">10</span>):</span>
+                  <strong id="res-paid">600 000 сум</strong>
+                </div>
+
+                <div class="calc-stat-row">
+                  <span>Всего визитов в клуб:</span>
+                  <strong id="res-total-visits">50 человек</strong>
+                </div>
+
+                <div class="calc-stat-row">
+                  <span>Продаж тренерами (~<span id="res-sales-count">15</span> шт):</span>
+                  <span id="res-turnover" style="font-size:12.5px; color:var(--text-muted);">97 500 000 сум оборот</span>
+                </div>
+
+                <div class="calc-stat-row" style="background:#FFFBEB; padding:6px 8px; border-radius:6px;">
+                  <span>Бонусный процент (<span id="res-bonus-pct">4%</span>):</span>
+                  <strong id="res-bonus-sum" style="color:#B45309;">3 900 000 сум</strong>
+                </div>
+              </div>
+
+              <!-- Крупный результат -->
+              <div class="total-salary-box">
+                <div class="total-salary-label">ИТОГО К ВЫПЛАТЕ НА РУКИ</div>
+                <div class="total-salary-val" id="res-total-salary">7 820 000 сум</div>
+                <div style="font-size:11.5px; opacity:0.9;">Твой личный доход за месяц</div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 6: 17 ФИЛИАЛОВ И ОРИЕНТИРЫ В ТАШКЕНТЕ
+           ==================================================================== -->
+      <section id="tab-branches" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">📍 Филиалы сети 35' Health Club (17 локаций)</h1>
+          <p class="page-description">Полный справочник адресов, ориентиров и станций метро по всему Ташкенту с быстрым поиском.</p>
+        </div>
+
+        <div class="alert-banner info" style="margin-bottom:16px;">
+          <span class="alert-icon">ℹ️</span>
+          <div style="flex:1;">
+            <strong>Официальная страница филиалов в Notion:</strong> 
+            <a href="https://fascinated-cadmium-eb2.notion.site/3b707f4b76aa80a5b179c248261bdc78" target="_blank" style="color:var(--secondary); font-weight:700; text-decoration:underline;">
+              Открыть интерактивную базу локаций в Notion ↗
+            </a><br>
+            <span style="font-size:13px; color:var(--text-muted);">Единый контактный номер для всех филиалов: <strong>+998 55 500 11 35</strong></span>
+          </div>
+        </div>
+
+        <!-- Поиск и фильтры по районам -->
+        <div class="branch-controls">
+          <div class="search-input-box">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="branch-search" class="search-input" placeholder="Поиск по названию, улице, метро или ориентиру..." oninput="filterBranches()" />
+          </div>
+
+          <div class="filter-pills" id="district-filters">
+            <button class="filter-pill active" onclick="setDistrictFilter('all', this)">Все (17)</button>
+            <button class="filter-pill" onclick="setDistrictFilter('Яшнабадский', this)">Яшнабад</button>
+            <button class="filter-pill" onclick="setDistrictFilter('Юнусабадский', this)">Юнусабад</button>
+            <button class="filter-pill" onclick="setDistrictFilter('Мирзо-Улугбекский', this)">Мирзо-Улугбек</button>
+            <button class="filter-pill" onclick="setDistrictFilter('Мирабадский', this)">Мирабад</button>
+            <button class="filter-pill" onclick="setDistrictFilter('Яккасарайский', this)">Яккасарай</button>
+            <button class="filter-pill" onclick="setDistrictFilter('Чиланзарский', this)">Чиланзар / Учтепа</button>
+            <button class="filter-pill" onclick="setDistrictFilter('Алмазарский', this)">Алмазар</button>
+            <button class="filter-pill" onclick="setDistrictFilter('Шайхантахурский', this)">Шайхантахур</button>
+          </div>
+        </div>
+
+        <!-- Сетка карточек 17 филиалов -->
+        <div class="branches-grid" id="branches-container">
+          <!-- Карточки будут сгенерированы скриптом для легкого поиска -->
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 7: СКРИПТЫ И РЕЧЕВЫЕ МОДУЛИ
+           ==================================================================== -->
+      <section id="tab-scripts" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">🗣️ Скрипты перехвата клиентов с улицы</h1>
+          <p class="page-description">Проверенные речевые модули для легкого знакомства, мгновенного преодоления барьера и захода на Tanita.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title">🎯 Логика и структура контакта (4 простых шага)</div>
+          <div class="grid-4" style="margin-top:12px;">
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md); border-top:3px solid var(--primary);">
+              <div style="font-weight:700; color:var(--text-dark); margin-bottom:4px;">1. Stop-hook (5 сек)</div>
+              <div style="font-size:13px; color:var(--text-muted);">Приятная улыбка, открытый жест, привлечение внимания без давления</div>
+            </div>
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md); border-top:3px solid var(--danger);">
+              <div style="font-weight:700; color:var(--text-dark); margin-bottom:4px;">2. Квалификация (21+)</div>
+              <div style="font-size:13px; color:var(--text-muted);">Ненавязчивый вопрос о возрасте, чтобы не тратить время на &lt;21</div>
+            </div>
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md); border-top:3px solid var(--secondary);">
+              <div style="font-weight:700; color:var(--text-dark); margin-bottom:4px;">3. Продажа ценности Tanita</div>
+              <div style="font-size:13px; color:var(--text-muted);">«3 минуты, разуваться не нужно, узнаете метаболический возраст»</div>
+            </div>
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md); border-top:3px solid var(--success);">
+              <div style="font-weight:700; color:var(--text-dark); margin-bottom:4px;">4. Завод в зал к тренеру</div>
+              <div style="font-size:13px; color:var(--text-muted);">Перешагиваем порог вместе, знакомим с дежурным тренером</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Готовые диалоги -->
+        <div class="card">
+          <div class="card-title">Сценарий №1: Классический экспресс-чек-ап здоровья (самый надежный)</div>
+          
+          <div class="dialogue-box">
+            <div class="speech-bubble assistant">
+              <div class="speech-author">Ты (с улыбкой и легким шагом навстречу):</div>
+              «Здравствуйте! Буквально минутку вашего внимания. Мы сегодня проводим бесплатный экспресс-чек-ап здоровья для жителей нашего района прямо здесь в 35 Health Club. Скажите, вы когда-нибудь проходили диагностику тела на японском аппарате Tanita?»
+            </div>
+
+            <div class="speech-bubble client">
+              <div class="speech-author">Прохожий:</div>
+              «Нет, а что это такое?» (или: «Нет, не проходил»)
+            </div>
+
+            <div class="speech-bubble assistant">
+              <div class="speech-author">Ты (проверка 21+ и ценность):</div>
+              «Это супер-точный биоимпеданс! Вы просто встаете на платформу на 2 минутки — и аппарат выдает распечатку: процент мышечной массы, висцеральный жир и ваш реальный биологический возраст! Скажите, вам уже есть 21 год?»
+            </div>
+
+            <div class="speech-bubble client">
+              <div class="speech-author">Прохожий:</div>
+              «Да, мне 26 лет.»
+            </div>
+
+            <div class="speech-bubble assistant">
+              <div class="speech-author">Ты (приглашающий жест рукой к дверям):</div>
+              «Отлично! Пойдемте, это прямо здесь на первом этаже, займет ровно 3 минуты, разуваться полностью не нужно. Заодно посмотрите наш клуб изнутри!»
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">Сценарий №2: Закрытие на пробную тренировку после замера Tanita</div>
+          
+          <div class="dialogue-box">
+            <div class="speech-bubble assistant">
+              <div class="speech-author">Ты (держа распечатку перед клиентом):</div>
+              «Рустам, смотрите на результат: мышечный тонус отличный, но висцеральный жир на уровне 8, а метаболический возраст показал 32 года при ваших паспортных 27. Хотели бы скинуть этот показатель до 25 лет за месяц?»
+            </div>
+
+            <div class="speech-bubble client">
+              <div class="speech-author">Клиент:</div>
+              «Ну конечно, а как это сделать?»
+            </div>
+
+            <div class="speech-bubble assistant">
+              <div class="speech-author">Ты (вариант А — закрытие на бесплатную пробную):</div>
+              «Как раз для этого у нас есть вводная персональная тренировка с нашим тренером [Имя тренера]. Он подберет нагрузку именно под ваши зоны. Давайте я вас запишу на завтра — вам удобнее в первой или второй половине дня?»
+            </div>
+
+            <div class="speech-bubble assistant" style="background:#ECFDF5; border-left-color:var(--success);">
+              <div class="speech-author" style="color:#065F46;">Ты (вариант Б — закрытие на платную тренировку за 120 000 сум):</div>
+              «У нас сейчас действует акция: полноценная диагностическая тренировка с топ-тренером под ключ всего за 120 000 сум (вместо обычных 250 000). Тренер распишет вам план питания и проведет разминку на немецких смарт-тренажерах. Запишемся на удобный день?»
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 8: ОТРАБОТКА ВОЗРАЖЕНИЙ
+           ==================================================================== -->
+      <section id="tab-objections" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">🛡️ Отработка возражений прохожих на улице</h1>
+          <p class="page-description">Нажимай на любое возражение, чтобы увидеть готовый скрипт ответа и психологию прохожего.</p>
+        </div>
+
+        <div class="accordion-item open">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>⏳ 1. «У меня нет времени, я очень тороплюсь!»</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="speech-bubble assistant">
+              «Я вас прекрасно понимаю! Замер на весах Tanita занимает ровно 180 секунд. Вы просто встаете на датчики, получаете листок с анализами тела и сразу бежите дальше по своим делам, но уже зная свой биологический возраст. Пойдемте, аппарат свободен!»
+            </div>
+            <div style="font-size:13px; color:var(--text-light); margin-top:8px;">
+              <strong>Почему это работает:</strong> Мы снимаем страх, что человека «затянут надолго». 3 минуты есть у каждого.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>💸 2. «Это платно? Вы мне потом начнете навязывать абонемент?»</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="speech-bubble assistant">
+              «Нет, диагностика и распечатка абсолютно бесплатные в рамках дня открытых дверей нашего филиала. Никаких обязательств покупать абонемент нет! Если вам понравится наш зал — расскажем подробнее, если нет — просто заберете распечатку здоровья себе на память.»
+            </div>
+            <div style="font-size:13px; color:var(--text-light); margin-top:8px;">
+              <strong>Почему это работает:</strong> Честность и снятие давления вызывают мгновенное доверие.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>💪 3. «Я уже хожу в другой зал / занимаюсь дома!»</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="speech-bubble assistant">
+              «Круто, респект за спорт! Значит, вам вдвойне интереснее увидеть динамику: какой у вас сейчас процент чистых мышц и нет ли скрытых отеков. В обычных залах таких японских аппаратов почти нет. Зайдите на 2 минутки и сравните свои показатели!»
+            </div>
+            <div style="font-size:13px; color:var(--text-light); margin-top:8px;">
+              <strong>Почему это работает:</strong> Мы хвалим собеседника и предлагаем профессиональный инструмент контроля прогресса.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>🍏 4. «Мне это не нужно, я здоров и чувствую себя отлично!»</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="speech-bubble assistant">
+              «Здорово, что со здоровьем все супер! Как раз интересно проверить: обычно у людей в отличной форме биологический возраст на 5–7 лет моложе паспортного. Давайте подтвердим вашу форму цифрами на чеке!»
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <div class="accordion-header" onclick="toggleAccordion(this)">
+            <span>📱 5. «Дайте ваш буклет / оставьте номер, я потом сам зайду!»</span>
+            <span class="accordion-arrow">▼</span>
+          </div>
+          <div class="accordion-body">
+            <div class="speech-bubble assistant">
+              «С удовольствием запишу ваш номер! Но буклет не покажет состав вашего тела, а весы стоят прямо за этой дверью. Мы с вами дольше разговариваем — пойдемте сделаем замер прямо сейчас, пока аппарат свободен!»
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 9: ГАЙД ПО TANITA
+           ==================================================================== -->
+      <section id="tab-tanita" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">⚖️ Руководство по биоимпедансу Tanita</h1>
+          <p class="page-description">Как правильно проводить замер, читать цифры и превращать их в жгучее желание тренироваться.</p>
+        </div>
+
+        <div class="alert-banner warning">
+          <span class="alert-icon">⚠️</span>
+          <div>
+            <strong>Медицинские противопоказания к биоимпедансу:</strong><br>
+            Категорически запрещено проводить диагностику людям с <strong>электрокардиостимуляторами</strong> (кардиовертерами) и <strong>беременным женщинам</strong> (из-за микротоковых импульсов).
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📋 Подготовка клиента к замеру (30 секунд)</div>
+          <div class="grid-3">
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md);">
+              <div style="font-weight:700; margin-bottom:4px;">1. Стопы на датчики</div>
+              <div style="font-size:13px; color:var(--text-muted);">Клиент снимает обувь и носки (колготки). Пятки и подушечки стоп строго на металлических пластинах платформы.</div>
+            </div>
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md);">
+              <div style="font-weight:700; margin-bottom:4px;">2. Ввод данных</div>
+              <div style="font-size:13px; color:var(--text-muted);">Уточняем точный рост, возраст (21+) и пол. Выбираем режим «Стандарт» (не «Атлет», если клиент не проф. спортсмен).</div>
+            </div>
+            <div style="background:#F8FAFC; padding:14px; border-radius:var(--radius-md);">
+              <div style="font-weight:700; margin-bottom:4px;">3. Фиксация позы</div>
+              <div style="font-size:13px; color:var(--text-muted);">Руки с рукоятками вытянуты вперед под 45 градусов, не прижимаются к телу. Не двигаться и не разговаривать 15 секунд.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-title">📊 6 главных показателей Tanita и как их продавать</div>
+          
+          <div class="grid-2">
+            <div class="tanita-metric-card">
+              <div class="metric-icon">🔥</div>
+              <div style="font-weight:800; font-size:16px; margin-bottom:4px;">Висцеральный жир (Visceral Fat)</div>
+              <div style="font-size:12px; font-weight:700; color:var(--danger); margin-bottom:8px;">Шкала от 1 до 12+ (Норма: 1 – 9)</div>
+              <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:10px;">
+                Жир, который обволакивает внутренние органы (печень, сердце). Самый опасный жир, провоцирующий давление и диабет.
+              </p>
+              <div style="background:#F8FAFC; padding:10px; border-radius:6px; font-size:13px; border-left:3px solid var(--primary);">
+                <strong>Что сказать клиенту:</strong> «Смотрите, у вас показатель 10 — это значит, органам тяжело дышать. Кардионагрузки в нашем зале сожгут его за первые 6 недель!»
+              </div>
+            </div>
+
+            <div class="tanita-metric-card">
+              <div class="metric-icon">🎂</div>
+              <div style="font-weight:800; font-size:16px; margin-bottom:4px;">Метаболический возраст (Metabolic Age)</div>
+              <div style="font-size:12px; font-weight:700; color:var(--primary); margin-bottom:8px;">Скорость обменных процессов тела</div>
+              <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:10px;">
+                Показывает, какому возрасту по здоровью соответствуют клетки организма на основе мышц и базового обмена.
+              </p>
+              <div style="background:#F8FAFC; padding:10px; border-radius:6px; font-size:13px; border-left:3px solid var(--primary);">
+                <strong>Что сказать клиенту:</strong> «Вам по паспорту 28, а тело работает как в 36 лет. Но хорошая новость — силовые тренировки омолодят обмен веществ на 10 лет назад!»
+              </div>
+            </div>
+
+            <div class="tanita-metric-card">
+              <div class="metric-icon">💪</div>
+              <div style="font-weight:800; font-size:16px; margin-bottom:4px;">Скелетная мышечная масса (Muscle Mass)</div>
+              <div style="font-size:12px; font-weight:700; color:var(--secondary); margin-bottom:8px;">Главная «печь» для сжигания калорий</div>
+              <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:10px;">
+                Чем выше мышечная масса, тем быстрее метаболизм и тем меньше шанс набрать лишний вес при обычном питании.
+              </p>
+              <div style="background:#F8FAFC; padding:10px; border-radius:6px; font-size:13px; border-left:3px solid var(--secondary);">
+                <strong>Что сказать клиенту:</strong> «Мышцы в дефиците, поэтому чувствуется быстрая усталость к вечеру. Нужно вернуть мышцам тонус под присмотром тренера!»
+              </div>
+            </div>
+
+            <div class="tanita-metric-card">
+              <div class="metric-icon">💧</div>
+              <div style="font-weight:800; font-size:16px; margin-bottom:4px;">Общая вода в теле (Total Body Water %)</div>
+              <div style="font-size:12px; font-weight:700; color:var(--secondary); margin-bottom:8px;">Норма: Мужчины 50–65%, Женщины 45–60%</div>
+              <p style="font-size:13.5px; color:var(--text-muted); margin-bottom:10px;">
+                Низкий процент воды говорит об обезвоживании и замедлении липолиза (расщепления жиров).
+              </p>
+              <div style="background:#F8FAFC; padding:10px; border-radius:6px; font-size:13px; border-left:3px solid var(--secondary);">
+                <strong>Что сказать клиенту:</strong> «Уровень воды снижен до 44%, из-за этого кровь гуще и сложнее худеть. Тренер научит правильному питьевому режиму.»
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 10: ЧЕК-ЛИСТ СМЕНЫ И ОТЧЕТНОСТЬ
+           ==================================================================== -->
+      <section id="tab-checklist" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">✅ Чек-лист смены и стандарты отчетов</h1>
+          <p class="page-description">Интерактивный список шагов на каждый день. Отмечай галочками выполненные действия (сохраняются в браузере).</p>
+        </div>
+
+        <div class="card">
+          <div class="card-title" style="justify-content:space-between;">
+            <span>Пошаговый алгоритм идеальной 4-часовой смены</span>
+            <button class="btn btn-outline" onclick="resetChecklist()" style="font-size:12px; padding:4px 10px;">Сбросить чек-лист</button>
+          </div>
+
+          <div id="checklist-container">
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 1)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-1" />
+              <div>
+                <strong>Прибытие на локацию за 15 минут до начала смены:</strong> 07:45 для утренней или 16:45 для вечерней смены.
+              </div>
+            </div>
+
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 2)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-2" />
+              <div>
+                <strong>Проверка внешнего вида:</strong> Опрятная фирменная футболка/поло 35 Health Club, темные брюки/джинсы, чистая закрытая обувь.
+              </div>
+            </div>
+
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 3)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-3" />
+              <div>
+                <strong>Заход на филиал и приветствие тренера:</strong> Лично поздороваться с дежурным тренером и администратором, оповестить о выходе на точку.
+              </div>
+            </div>
+
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 4)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-4" />
+              <div>
+                <strong>Открытие смены в Telegram-чате:</strong> Отправить текстовый отчет + видео-кружочек с геопозицией (лицо, форма, локация филиала).
+              </div>
+            </div>
+
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 5)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-5" />
+              <div>
+                <strong>Активная работа у локации:</strong> Встреча трафика, соблюдение активной стойки (без сидения и соцсетей), проверка возраста 21+.
+              </div>
+            </div>
+
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 6)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-6" />
+              <div>
+                <strong>Фиксация каждого визита:</strong> Внесение клиента в свою личную ссылку + в личную группу (ФИО, телефон, дата/время визита).
+              </div>
+            </div>
+
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 7)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-7" />
+              <div>
+                <strong>Отчет в «Отряд Промо-консультантов»:</strong> При визите отправить скрин с подписью «+1 визит», при записи на тренировку — «+1».
+              </div>
+            </div>
+
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 8)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-8" />
+              <div>
+                <strong>Контроль CRM в конце смены:</strong> Зайти в зал к тренеру и проконтролировать, чтобы в CRM в заметках указали вашу фамилию.
+              </div>
+            </div>
+
+            <div class="checklist-item" onclick="toggleChecklistItem(this, 9)">
+              <input type="checkbox" class="checklist-checkbox" id="chk-9" />
+              <div>
+                <strong>Итоговый отчет о закрытии смены:</strong> Отправить финальный отчет в рабочий чат с часами и количеством записей/визитов.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Шаблоны сообщений -->
+        <div class="grid-2">
+          <div class="card">
+            <div class="card-title">📲 Шаблон отчета об открытии смены</div>
+            <div class="template-box" id="tpl-open">#ОткрытиеСмены
+Филиал: 35' Ойбек
+ФИО: Каримов Сардор
+Смена: Утренняя (08:00 - 12:00)
+Форма: Надел, на локации
+Видео-кружочек с гео: Прикреплен ✅
+Дежурный тренер: Оповещен лично ✅<button class="copy-template-btn" onclick="copyTemplate('tpl-open')">Копировать</button></div>
+          </div>
+
+          <div class="card">
+            <div class="card-title">📲 Шаблон отчета о закрытии смены</div>
+            <div class="template-box" id="tpl-close">#ЗакрытиеСмены
+Филиал: 35' Ойбек
+ФИО: Каримов Сардор
+Часы работы: 4 часа (08:00 - 12:00)
+Визитов на Tanita: 3 (+1 визит)
+Записей на тренировку: 2 (+1 запись)
+CRM тренером проверена: Да, визиты внесены ✅<button class="copy-template-btn" onclick="copyTemplate('tpl-close')">Копировать</button></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           ВКЛАДКА 11: ТЕСТ СТАЖЕРА (САМОПРОВЕРКА)
+           ==================================================================== -->
+      <section id="tab-quiz" class="tab-content">
+        <div class="page-header">
+          <h1 class="page-title">🎓 Экспресс-тест на допуск к смене</h1>
+          <p class="page-description">Ответь на 5 вопросов регламента, чтобы проверить свои знания перед выходом на филиал.</p>
+        </div>
+
+        <div class="quiz-card" id="q1">
+          <div class="quiz-question">1. Лиц какого возраста строго ЗАПРЕЩЕНО заводить и записывать в клуб?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, 'Младше 21 года строго запрещено!')">Младше 18 лет</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, true, 'Верно! Строго запрещено заводить лиц младше 21 года.')">Младше 21 года</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, 'Регламент запрещает лиц младше 21 года.')">Младше 25 лет</div>
+          </div>
+          <div class="quiz-feedback" style="margin-top:10px; font-size:13.5px; display:none;"></div>
+        </div>
+
+        <div class="quiz-card" id="q2">
+          <div class="quiz-question">2. Какой минимальный норматив успешных визитов за 4-часовую смену?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, '1 визита недостаточно.')">1 визит</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, true, 'Верно! Норматив — минимум 2 успешных визита за смену.')">Минимум 2 визита</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, '5 визитов — отличный результат, но норматив 2.')">5 визитов</div>
+          </div>
+          <div class="quiz-feedback" style="margin-top:10px; font-size:13.5px; display:none;"></div>
+        </div>
+
+        <div class="quiz-card" id="q3">
+          <div class="quiz-question">3. В какой период смены запрещено уходить на обеденный перерыв?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, 'В первые два часа обедать можно по согласованию.')">В первые два часа смены</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, true, 'Верно! Категорически запрещено брать обед в последний час смены.')">В последний час рабочей смены</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, 'В середине смены как раз рекомендуется обедать.')">В середине смены</div>
+          </div>
+          <div class="quiz-feedback" style="margin-top:10px; font-size:13.5px; display:none;"></div>
+        </div>
+
+        <div class="quiz-card" id="q4">
+          <div class="quiz-question">4. Сколько получает промо-консультант за платный визит клиента (120 000 сум)?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, '20% — неверно.')">20 000 сум (15%)</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, '50 000 сум — это ставка за бесплатный визит.')">50 000 сум</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, true, 'Точно! 50% от стоимости = 60 000 сум промоутеру!')">50% от стоимости (60 000 сум)</div>
+          </div>
+          <div class="quiz-feedback" style="margin-top:10px; font-size:13.5px; display:none;"></div>
+        </div>
+
+        <div class="quiz-card" id="q5">
+          <div class="quiz-question">5. Какой штраф грозит за невыход на смену без предупреждения?</div>
+          <div class="quiz-options">
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, '50 000 сум — штраф за опоздание.')">50 000 сум</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, true, 'Верно! Штраф за невыход без предупреждения составляет 200 000 сум.')">200 000 сум</div>
+            <div class="quiz-opt" onclick="handleQuizAnswer(this, false, 'Штраф равен 200 000 сум.')">100 000 сум</div>
+          </div>
+          <div class="quiz-feedback" style="margin-top:10px; font-size:13.5px; display:none;"></div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ПОДВАЛ (FOOTER) -->
+  <footer class="main-footer">
+    <div style="max-width:1440px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px;">
+      <div>
+        <strong>35' Health Club Tashkent</strong> • Внутренняя интерактивная база знаний отдела фитнес-ассистентов.
+      </div>
+      <div>
+        Единый колл-центр: <strong style="color:var(--text-dark);">+998 55 500 11 35</strong> • Работает автономно offline
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================================================
+       JAVASCRIPT ЛОГИКА ПРИЛОЖЕНИЯ
+       ======================================================================== -->
+  <script>
+    /* --------------------------------------------------------------------------
+       БАЗА ДАННЫХ 17 ФИЛИАЛОВ В ТАШКЕНТЕ
+       -------------------------------------------------------------------------- */
+    const branchesData = [
+      {
+        id: 1,
+        name: "35' LISUNOVA (Лисунова)",
+        district: "Яшнабадский",
+        address: "ул. Олтинтепа / ул. Эльбек (Лисунова), 26/28",
+        landmark: "Метро «Яшнабад», Дворец Авиастроителей, супермаркет Korzinka Elbek, под Dodo Pizza",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Яшнабад (бывш. Чкалова)"
+      },
+      {
+        id: 2,
+        name: "35' YUNUSABAD 14 (Юнусабад)",
+        district: "Юнусабадский",
+        address: "Юнусабад, 14-й квартал, дом 67",
+        landmark: "ул. Ахилобод, базар Юнусабад, ресторан Сайрам",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Туркистон"
+      },
+      {
+        id: 3,
+        name: "35' BOGISHAMOL (Юнусабад-2)",
+        district: "Юнусабадский",
+        address: "Юнусабад, 2-й квартал, дом 14Б / ул. Богишамол, 90",
+        landmark: "Супермаркет «Корзинка — Богишамол», АЗС «Карвон» (бывш. Узгазоил)",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Шахристан"
+      },
+      {
+        id: 4,
+        name: "35' MARKAZ-5 / MINOR (Ц-5)",
+        district: "Юнусабадский",
+        address: "Массив Марказ-5 (Ц-5), дом 50",
+        landmark: "Метро «Минор», ул. Ниёзбек Йули, мечеть Минор, посольство Германии",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Минор"
+      },
+      {
+        id: 5,
+        name: "35' AYVON (Айвон)",
+        district: "Мирабадский",
+        address: "ул. Бабура / пересечение с ул. Нукус",
+        landmark: "Ташкентская магистральная электросеть, рядом магазин «Барака», гостиница Grand Mir",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Ойбек"
+      },
+      {
+        id: 6,
+        name: "35' CHIMGAN (Буз-2)",
+        district: "Мирзо-Улугбекский",
+        address: "Буз-2, 69 ж/м (Бинокор 69)",
+        landmark: "Недалеко от Эко-базара (Чимган), рядом со школой №49, ТЦ Chimgan",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Буюк Ипак Йули"
+      },
+      {
+        id: 7,
+        name: "35' DARKHAN (Дархан)",
+        district: "Мирзо-Улугбекский",
+        address: "проспект Мустакиллик, 43а",
+        landmark: "В здании ТЦ «OLMA» (3-й этаж), рядом с Университетом физкультуры и спортивным мостом",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Хамид Олимжон"
+      },
+      {
+        id: 8,
+        name: "35' KARASU (Карасу-4)",
+        district: "Мирзо-Улугбекский",
+        address: "Массив Карасу-4, дом 2",
+        landmark: "Рядом массив Карасу-1, детская стоматологическая поликлиника №3, базарчик Карасу",
+        phone: "+998 55 500 11 35",
+        metro: "Автобусы до Карасу"
+      },
+      {
+        id: 9,
+        name: "35' OLTINTEPA (Олтинтепа)",
+        district: "Яшнабадский",
+        address: "ул. Олтинтепа (бывш. Циолковского), 26, 28",
+        landmark: "Банкетный зал BEHRUZ, супермаркет Korzinka.uz Олтинтепа, ресторан Эдем",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Буюк Ипак Йули"
+      },
+      {
+        id: 10,
+        name: "35' OYBEK (Ойбек)",
+        district: "Мирабадский",
+        address: "ул. Афрасиаб, 10/2 (Мирабад-17)",
+        landmark: "Метро «Ойбек» и «Мингурик», кафе «Точка вкуса», бизнес-центр Premier Hall",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Ойбек / Мингурик"
+      },
+      {
+        id: 11,
+        name: "35' NUKUS (Нукус)",
+        district: "Мирабадский",
+        address: "ул. Нукус, 90 (35' Milon X)",
+        landmark: "Посольство РФ, клиника Fedorovich, БЦ Nukus, супермаркет Makro",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Ташкент / Ойбек"
+      },
+      {
+        id: 12,
+        name: "35' SHIRIN (Ширин Чиланзар)",
+        district: "Чиланзарский",
+        address: "Учтепинский р-н, Чиланзар 24-й квартал, ул. Ширин, 2Д",
+        landmark: "За автобусной остановкой «Ширин», в 9-этажном доме на 1 этаже (в ряду аптек)",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Чиланзар"
+      },
+      {
+        id: 13,
+        name: "35' KATARTAL (Катартал)",
+        district: "Чиланзарский",
+        address: "Чиланзарский р-н, квартал Катартал, 16Б",
+        landmark: "Оптовый рынок Катартал, ТРЦ Parus, ТЦ Катартал",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Новза / Чиланзар"
+      },
+      {
+        id: 14,
+        name: "35' KUSHBEGI (Кушбеги)",
+        district: "Яккасарайский",
+        address: "ул. Кушбеги, 12",
+        landmark: "Текстильный комбинат, Текстильный мост, супермаркет Korzinka Текстиль",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Ташкент"
+      },
+      {
+        id: 15,
+        name: "35' RAKAT (Ракат)",
+        district: "Яккасарайский",
+        address: "ул. Шохджахон (Шахжахон), 16",
+        landmark: "Махалля Ракат, отель Rakat Plaza, Педагогический институт",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Космонавтов"
+      },
+      {
+        id: 16,
+        name: "35' BERUNIY (Беруни / Карасарай)",
+        district: "Алмазарский",
+        address: "ул. Кичик Халка Йули (МКАД), 77/1Ф",
+        landmark: "Массив Карасарай, станция метро «Беруни», ТашГТУ",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Беруни"
+      },
+      {
+        id: 17,
+        name: "35' KORATASH (Кораташ)",
+        district: "Шайхантахурский",
+        address: "Жилмассив Кораташ, дом 3Г (2/1)",
+        landmark: "ТРЦ Samarqand Darvoza (Самарканд Дарвоза), ресторан Suzani, мечеть Ходжа Ахрар Вали",
+        phone: "+998 55 500 11 35",
+        metro: "ст. м. Чорсу / Дружба Народов"
+      }
+    ];
+
+    let currentDistrict = "all";
+
+    /* --------------------------------------------------------------------------
+       ПЕРЕКЛЮЧЕНИЕ ВКЛАДОК (SPA БЕЗ ПЕРЕЗАГРУЗКИ)
+       -------------------------------------------------------------------------- */
+    function switchTab(tabId) {
+      // Скрыть все вкладки
+      const contents = document.querySelectorAll('.tab-content');
+      contents.forEach(el => el.classList.remove('active'));
+
+      // Показать выбранную вкладку
+      const target = document.getElementById('tab-' + tabId);
+      if (target) {
+        target.classList.add('active');
+      }
+
+      // Обновить активный пункт в сайдбаре
+      const navItems = document.querySelectorAll('.sidebar .nav-item');
+      navItems.forEach(item => {
+        item.classList.remove('active');
+        if (item.getAttribute('onclick') && item.getAttribute('onclick').includes(tabId)) {
+          item.classList.add('active');
+        }
+      });
+
+      // Закрыть сайдбар на мобильных
+      closeMobileSidebar();
+
+      // Прокрутить наверх
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function toggleMobileSidebar() {
+      const sidebar = document.getElementById('app-sidebar');
+      const backdrop = document.getElementById('sidebar-backdrop');
+      sidebar.classList.toggle('mobile-open');
+      backdrop.classList.toggle('active');
+    }
+
+    function closeMobileSidebar() {
+      const sidebar = document.getElementById('app-sidebar');
+      const backdrop = document.getElementById('sidebar-backdrop');
+      sidebar.classList.remove('mobile-open');
+      backdrop.classList.remove('active');
+    }
+
+    /* --------------------------------------------------------------------------
+       ИНТЕРАКТИВНЫЙ РАСЧЕТ ЗАРПЛАТЫ (КАЛЬКУЛЯТОР МОТИВАЦИИ)
+       -------------------------------------------------------------------------- */
+    function calculateSalary() {
+      const hours = parseInt(document.getElementById('input-hours').value) || 0;
+      const freeVisits = parseInt(document.getElementById('input-visits').value) || 0;
+      const paidVisits = parseInt(document.getElementById('input-paid-visits').value) || 0;
+      const conv = parseInt(document.getElementById('input-conv').value) || 0;
+
+      // Обновление бейджей ползунков
+      document.getElementById('label-hours').textContent = hours + ' часов';
+      document.getElementById('label-visits').textContent = freeVisits + ' чел';
+      document.getElementById('label-paid-visits').textContent = paidVisits + ' чел';
+      document.getElementById('label-conv').textContent = conv + '%';
+
+      // 1. Оклад: 12 000 сум за отработанный час
+      const baseSalary = hours * 12000;
+
+      // 2. Оплата за визиты:
+      // Бесплатный визит: 50 000 сум
+      // Платный визит: 50% от стоимости 120 000 сум = 60 000 сум
+      const freeSum = freeVisits * 50000;
+      const paidSum = paidVisits * 60000;
+      const totalVisitsCount = freeVisits + paidVisits;
+
+      // 3. Расчет продаж и бонуса от оборота:
+      // Средний чек абонемента: 6 500 000 сум
+      const avgCheck = 6500000;
+      const salesCount = Math.round(totalVisitsCount * (conv / 100));
+      const turnover = salesCount * avgCheck;
+
+      // Определение процента бонуса по шкале со скриншота:
+      // >20% -> 3%, >30% -> 4%, >40% -> 5%, >50% -> 7%
+      let bonusPct = 0;
+      if (conv >= 50) {
+        bonusPct = 7;
+      } else if (conv >= 40) {
+        bonusPct = 5;
+      } else if (conv >= 30) {
+        bonusPct = 4;
+      } else if (conv >= 20) {
+        bonusPct = 3;
+      } else {
+        bonusPct = 0;
+      }
+
+      const bonusSum = Math.round(turnover * (bonusPct / 100));
+      const totalSalary = baseSalary + freeSum + paidSum + bonusSum;
+
+      // Форматирование чисел в вид с пробелами
+      const formatNumber = (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+
+      // Вывод в UI детализации
+      document.getElementById('stat-hours').textContent = hours;
+      document.getElementById('res-base').textContent = formatNumber(baseSalary) + ' сум';
+
+      document.getElementById('stat-free-count').textContent = freeVisits;
+      document.getElementById('res-free').textContent = formatNumber(freeSum) + ' сум';
+
+      document.getElementById('stat-paid-count').textContent = paidVisits;
+      document.getElementById('res-paid').textContent = formatNumber(paidSum) + ' сум';
+
+      document.getElementById('res-total-visits').textContent = totalVisitsCount + ' человек';
+      document.getElementById('res-sales-count').textContent = salesCount;
+      document.getElementById('res-turnover').textContent = formatNumber(turnover) + ' сум оборот';
+
+      document.getElementById('res-bonus-pct').textContent = bonusPct + '%';
+      document.getElementById('res-bonus-sum').textContent = formatNumber(bonusSum) + ' сум';
+
+      document.getElementById('res-total-salary').textContent = formatNumber(totalSalary) + ' сум';
+    }
+
+    /* --------------------------------------------------------------------------
+       ОТРИСОВКА И ФИЛЬТРАЦИЯ 17 ФИЛИАЛОВ
+       -------------------------------------------------------------------------- */
+    function renderBranches(list) {
+      const container = document.getElementById('branches-container');
+      if (!container) return;
+      container.innerHTML = '';
+
+      if (list.length === 0) {
+        container.innerHTML = `
+          <div style="grid-column:1/-1; text-align:center; padding:40px; background:#FFF; border-radius:12px; border:1px solid #E2E8F0;">
+            <div style="font-size:32px; margin-bottom:8px;">🔍</div>
+            <div style="font-weight:700; font-size:16px;">Филиал не найден</div>
+            <div style="color:#64748B; font-size:14px; margin-top:4px;">Попробуйте изменить поисковый запрос или сбросить фильтр района.</div>
+          </div>
+        `;
+        return;
+      }
+
+      list.forEach(b => {
+        const card = document.createElement('div');
+        card.className = 'branch-card';
+        card.innerHTML = `
+          <div>
+            <span class="branch-num">№${b.id}</span>
+            <div class="branch-name">${b.name}</div>
+            <div class="branch-district">${b.district} район</div>
+
+            <div class="branch-info-row">
+              <strong>📍 Адрес:</strong>
+              <span>${b.address}</span>
+            </div>
+
+            <div class="branch-info-row">
+              <strong>🧭 Ориентир:</strong>
+              <span>${b.landmark}</span>
+            </div>
+
+            <div class="branch-info-row">
+              <strong>🚇 Метро:</strong>
+              <span>${b.metro}</span>
+            </div>
+          </div>
+
+          <div>
+            <button class="branch-copy-btn" onclick="copyBranchInfo('${b.name.replace(/'/g, "\\'")}', '${b.address.replace(/'/g, "\\'")}', '${b.landmark.replace(/'/g, "\\'")}')">
+              <span>📋</span> Скопировать адрес и ориентир
+            </button>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function filterBranches() {
+      const query = (document.getElementById('branch-search').value || '').toLowerCase().trim();
+      
+      const filtered = branchesData.filter(b => {
+        const matchesDistrict = (currentDistrict === 'all') || (b.district.toLowerCase().includes(currentDistrict.toLowerCase()));
+        const matchesQuery = !query || 
+          b.name.toLowerCase().includes(query) ||
+          b.address.toLowerCase().includes(query) ||
+          b.landmark.toLowerCase().includes(query) ||
+          b.metro.toLowerCase().includes(query) ||
+          b.district.toLowerCase().includes(query);
+        
+        return matchesDistrict && matchesQuery;
+      });
+
+      renderBranches(filtered);
+    }
+
+    function setDistrictFilter(district, btnElement) {
+      currentDistrict = district;
+      
+      const pills = document.querySelectorAll('#district-filters .filter-pill');
+      pills.forEach(p => p.classList.remove('active'));
+      if (btnElement) btnElement.classList.add('active');
+
+      filterBranches();
+    }
+
+    function copyBranchInfo(name, address, landmark) {
+      const text = `${name}\nАдрес: ${address}\nОриентир: ${landmark}\nЕдиный колл-центр: +998 55 500 11 35`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Данные филиала скопированы в буфер обмена!\nМожно отправить клиенту или в такси.');
+      }).catch(() => {
+        prompt('Скопируйте адрес вручную:', text);
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       АККОРДЕОНЫ И КОПИРОВАНИЕ ШАБЛОНОВ
+       -------------------------------------------------------------------------- */
+    function toggleAccordion(header) {
+      const item = header.parentElement;
+      item.classList.toggle('open');
+    }
+
+    function copyTemplate(templateId) {
+      const el = document.getElementById(templateId);
+      if (!el) return;
+      // Текст без текста самой кнопки "Копировать"
+      const text = el.innerText.replace('Копировать', '').trim();
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Шаблон скопирован в буфер обмена!');
+      }).catch(() => {
+        prompt('Скопируйте шаблон:', text);
+      });
+    }
+
+    /* --------------------------------------------------------------------------
+       ИНТЕРАКТИВНЫЙ ЧЕК-ЛИСТ (СОХРАНЕНИЕ В LOCALSTORAGE)
+       -------------------------------------------------------------------------- */
+    function toggleChecklistItem(itemEl, id) {
+      const checkbox = itemEl.querySelector('input[type="checkbox"]');
+      // Инвертируем состояние если клик был не напрямую по чекбоксу
+      if (event.target !== checkbox) {
+        checkbox.checked = !checkbox.checked;
+      }
+      if (checkbox.checked) {
+        itemEl.classList.add('done');
+      } else {
+        itemEl.classList.remove('done');
+      }
+      saveChecklistState();
+    }
+
+    function saveChecklistState() {
+      const checkboxes = document.querySelectorAll('#checklist-container input[type="checkbox"]');
+      const state = Array.from(checkboxes).map(cb => cb.checked);
+      try {
+        localStorage.setItem('35hc_checklist', JSON.stringify(state));
+      } catch (e) {}
+    }
+
+    function loadChecklistState() {
+      try {
+        const saved = localStorage.getItem('35hc_checklist');
+        if (!saved) return;
+        const state = JSON.parse(saved);
+        const items = document.querySelectorAll('#checklist-container .checklist-item');
+        items.forEach((item, idx) => {
+          const cb = item.querySelector('input[type="checkbox"]');
+          if (state[idx]) {
+            cb.checked = true;
+            item.classList.add('done');
+          }
+        });
+      } catch (e) {}
+    }
+
+    function resetChecklist() {
+      if (!confirm('Сбросить все отметки чек-листа?')) return;
+      const items = document.querySelectorAll('#checklist-container .checklist-item');
+      items.forEach(item => {
+        item.classList.remove('done');
+        item.querySelector('input[type="checkbox"]').checked = false;
+      });
+      try {
+        localStorage.removeItem('35hc_checklist');
+      } catch (e) {}
+    }
+
+    /* --------------------------------------------------------------------------
+       ИНТЕРАКТИВНЫЙ ТЕСТ СТАЖЕРА
+       -------------------------------------------------------------------------- */
+    function handleQuizAnswer(optionEl, isCorrect, feedbackText) {
+      const parentCard = optionEl.closest('.quiz-card');
+      const options = parentCard.querySelectorAll('.quiz-opt');
+      const feedback = parentCard.querySelector('.quiz-feedback');
+
+      options.forEach(opt => {
+        opt.style.pointerEvents = 'none'; // Блокируем повторный клик
+      });
+
+      if (isCorrect) {
+        optionEl.classList.add('correct');
+        feedback.style.display = 'block';
+        feedback.style.color = '#059669';
+        feedback.innerHTML = '✅ <strong>Правильно!</strong> ' + feedbackText;
+      } else {
+        optionEl.classList.add('incorrect');
+        feedback.style.display = 'block';
+        feedback.style.color = '#DC2626';
+        feedback.innerHTML = '❌ <strong>Ошибка!</strong> ' + feedbackText;
+      }
+    }
+
+    /* --------------------------------------------------------------------------
+       ИНИЦИАЛИЗАЦИЯ ПРИ ЗАГРУЗКЕ СТРАНИЦЫ
+       -------------------------------------------------------------------------- */
+    window.addEventListener('DOMContentLoaded', () => {
+      calculateSalary();
+      renderBranches(branchesData);
+      loadChecklistState();
+    });
+  </script>
+</body>
+</html>
